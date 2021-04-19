@@ -4,6 +4,7 @@ import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 
 //Components
+import Signin from "../authentication/Signin";
 import Home from "../Home";
 import About from "../About";
 
@@ -11,7 +12,12 @@ const { Navigator, Screen } = createStackNavigator();
 
 const RootNavigator = () => {
   return (
-    <Navigator initialRouteName="Home">
+    <Navigator initialRouteName="Signin">
+      <Screen
+        name="Signin"
+        component={Signin}
+        options={{ headerShown: false }}
+      />
       <Screen name="Home" component={Home} />
       <Screen name="About" component={About} />
     </Navigator>
