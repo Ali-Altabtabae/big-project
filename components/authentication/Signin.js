@@ -13,16 +13,18 @@ import {
 // authStore
 import authStore from "../../stores/authStore";
 
-
 const Signin = ({ navigation }) => {
   const [user, setUser] = useState({
     username: "",
     password: "",
   });
   const handleSubmit = async () => {
-    console.log("Signin", user)
     await authStore.signin(user);
-    if (authStore.user) navigation.replace("Home");
+    if (authStore.user) {
+      navigation.replace("Home");
+    } else {
+      alert("username or password is wrong");
+    }
   };
   return (
     <AuthContainer>

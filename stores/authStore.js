@@ -1,6 +1,5 @@
 import { makeAutoObservable } from "mobx";
 import instance from "./instance";
-import axios from "axios";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 //decode
@@ -22,10 +21,7 @@ class AuthStore {
   //sign up
   signup = async (userData) => {
     try {
-      const res = await axios.post(
-        "http://192.168.8.104:8000/signup",
-        userData
-      );
+      const res = await instance.post("/signup", userData);
       this.setUser(res.data.token);
     } catch (error) {
       console.log("AuthStore -> signup -> error", error);
@@ -37,7 +33,7 @@ class AuthStore {
     try {
       const res = await instance.post("/signin", userData);
       this.setUser(res.data.token);
-      //this.user = decode(res.data.token);
+      this.user = decode(res.data.token);
       console.log("AuthStore -> signin -> res.data.token", res.data.token);
     } catch (error) {
       console.log("AuthStore -> signin -> error", error);
@@ -49,6 +45,7 @@ class AuthStore {
     this.user = null;
     delete instance.defaults.headers.common.Authorization;
     AsyncStorage.removeItem("myToken");
+    alert("Signed Out")
   };
 
   // check if token exists
