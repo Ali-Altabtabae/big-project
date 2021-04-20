@@ -1,7 +1,7 @@
 import { makeAutoObservable } from "mobx";
 import instance from "./instance";
 import axios from "axios";
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 //decode
 import decode from "jwt-decode";
