@@ -70,3 +70,11 @@ export const AuthOther = styled.Text`
   margin-top: 15px;
 `;
 
+export const TeamItemStyled = styled.Text`
+  color: black;
+  font-size: 18;
+  margin-top: 10;
+  margin-bottom: 10;
+  margin-left: 16;
+  width: 100%;
+`;
