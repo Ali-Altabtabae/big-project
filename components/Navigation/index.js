@@ -10,7 +10,6 @@ import Home from "../Home";
 import About from "../About";
 import Fields from "../Fields"
 
-import MyTeam from "../MyTeam";
 
 import Fields from "../Fields"
 
@@ -29,7 +28,6 @@ const RootNavigator = () => {
       <Screen name="Signup" component={Signup} />
       <Screen name="Home" component={Home} />
      <Screen name="About" component={About} />
-      <Screen name="MyTeam" component={MyTeam} />
       <Screen name="Fields" component={Fields} />
 
 
