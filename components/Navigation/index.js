@@ -15,11 +15,13 @@ const RootNavigator = () => {
   return (
     <Navigator initialRouteName="Signin">
 
-      <Screen name="MyTeam" component={MyTeam} />
+<Screen
+        name="Signin"
+        component={Signin}
+        options={{ headerShown: false }}
+      />
       <Screen name="Home" component={Home} />
-
-    
-      <Screen name="About" component={About} />
+     <Screen name="About" component={About} />
     </Navigator>
   );
 };
