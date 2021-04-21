@@ -16,14 +16,13 @@ import authStore from "../../stores/authStore";
 const Signup = ({ navigation }) => {
   const [user, setUser] = useState({
     username: "",
-    firstName: "",
-    lastName: "",
     email: "",
     password: "",
   });
   const handleSubmit = async () => {
     await authStore.signup(user);
-    if (authStore.user) navigation.replace("UserHome");
+    console.log("Found it: ",authStore.user)
+    if (authStore.user) navigation.replace("Home");
   };
   return (
     <AuthContainer>
@@ -31,16 +30,6 @@ const Signup = ({ navigation }) => {
       <AuthTextInput
         onChangeText={(username) => setUser({ ...user, username })}
         placeholder="Username"
-        placeholderTextColor="#A6AEC1"
-      />
-      <AuthTextInput
-        onChangeText={(firstName) => setUser({ ...user, firstName })}
-        placeholder="First Name"
-        placeholderTextColor="#A6AEC1"
-      />
-      <AuthTextInput
-        onChangeText={(lastName) => setUser({ ...user, lastName })}
-        placeholder="Last Name"
         placeholderTextColor="#A6AEC1"
       />
       <AuthTextInput
