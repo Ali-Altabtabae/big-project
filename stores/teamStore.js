@@ -1,19 +1,19 @@
 import { makeAutoObservable } from "mobx";
 import instance from "./instance";
 
-class TeamStore {
+class TeamAPIStore {
   constructor() {
     makeAutoObservable(this);
   }
-  team = [];
+  teams = [];
 
-  fetchteam = async () => {
+  fetchTeam = async () => {
     const response = await instance.get("/teams");
-    this.team = response.data;
+    this.teams = response.data;
   };
 }
 
-const teamStore = new TeamStore();
-TeamStore.fetchRoom();
+const teamAPIStore = new TeamAPIStore();
+teamAPIStore.fetchTeam();
 
-export default teamStore;
+export default teamAPIStore;

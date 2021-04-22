@@ -7,6 +7,7 @@ import decode from "jwt-decode";
 
 class AuthStore {
   user = null;
+  team = [];
 
   constructor() {
     makeAutoObservable(this);
@@ -45,7 +46,22 @@ class AuthStore {
     this.user = null;
     delete instance.defaults.headers.common.Authorization;
     AsyncStorage.removeItem("myToken");
-    alert("Signed Out")
+    alert("Signed Out");
+  };
+
+  // Create Room
+  createTeam = async (newTeam) => {
+    try {
+      const token = await AsyncStorage.getItem("myToken");
+      const res = await instance.post(
+        "/teams",
+        newTeam,
+        { headers: { Authorization: `Bearer ${token}` } }
+      );
+      this.team.push(res.data);
+    } catch (error) {
+      console.log("authStore -> createTeam -> error ", error);
+    }
   };
 
   // check if token exists

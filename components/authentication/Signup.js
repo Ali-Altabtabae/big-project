@@ -21,7 +21,6 @@ const Signup = ({ navigation }) => {
   });
   const handleSubmit = async () => {
     await authStore.signup(user);
-    console.log("Found it: ",authStore.user)
     if (authStore.user) navigation.replace("Home");
   };
   return (
