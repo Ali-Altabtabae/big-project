@@ -1,8 +1,9 @@
 import React from "react";
+import { AuthButtonText } from "../styles";
 
 
 const About = () => {
-  return <h1>This is The About Page</h1>;
+  return <AuthButtonText>This is The About Page</AuthButtonText>;
 };
 
 export default About;

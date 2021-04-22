@@ -8,7 +8,7 @@ import Signin from "../authentication/Signin";
 import Signup from "../authentication/Signup";
 import Home from "../Home";
 import About from "../About";
-import Fields from "../Fields"
+import Fields from "../Fields";
 
 const { Navigator, Screen } = createStackNavigator();
 
@@ -21,10 +21,13 @@ const RootNavigator = () => {
         options={{ headerShown: false }}
       />
       <Screen name="Signup" component={Signup} />
-      <Screen name="Home" component={Home} />
-      <Screen name="About" component={About} />
-      <Screen name="Fields" component={Fields} />
-
+      <Screen name="Home" component={Home} options={{ headerShown: false }} />
+      <Screen name="About" component={About} options={{ headerShown: false }} />
+      <Screen
+        name="Fields"
+        component={Fields}
+        options={{ headerShown: false }}
+      />
     </Navigator>
   );
 };

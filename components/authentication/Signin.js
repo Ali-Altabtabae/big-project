@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import userStore from "../../stores/userStore"
 // Styling
 import {
   AuthContainer,
@@ -19,6 +19,7 @@ const Signin = ({ navigation }) => {
     password: "",
   });
   const handleSubmit = async () => {
+    console.log("Hi ", userStore.users.username)
     await authStore.signin(user);
     if (authStore.user) {
       navigation.replace("Home");
@@ -28,7 +29,7 @@ const Signin = ({ navigation }) => {
   };
   return (
     <AuthContainer>
-      <AuthTitle>Signin</AuthTitle>
+      <AuthTitle>Sign in</AuthTitle>
       <AuthTextInput
         onChangeText={(username) => setUser({ ...user, username })}
         placeholder="Username"

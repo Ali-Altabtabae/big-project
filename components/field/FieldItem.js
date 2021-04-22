@@ -1,15 +1,15 @@
 import React from "react";
-import { AuthButtonText } from "../../styles";
+import { HomeButtonText, HomeButton } from "../../styles";
 
 const FieldItem = (props) => {
   const field = props.field;
   return (
-    <>
-      <AuthButtonText>{field.fieldname}</AuthButtonText>
-      <AuthButtonText>{field.location}</AuthButtonText>
-      <AuthButtonText>{field.price}</AuthButtonText>
-      <AuthButtonText>{field.capacity}</AuthButtonText>
-    </>
+    <HomeButton>
+      <HomeButtonText>{field.fieldname}</HomeButtonText>
+      <HomeButtonText>Location: {field.location}</HomeButtonText>
+      <HomeButtonText>Price: {field.price} $/hr</HomeButtonText>
+      <HomeButtonText>Capacity: {field.capacity}</HomeButtonText>
+    </HomeButton>
   );
 };
 export default FieldItem;
