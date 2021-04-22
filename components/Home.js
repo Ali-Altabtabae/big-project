@@ -1,14 +1,14 @@
-import React from "react";
-import { View } from "react-native";
+import React, { useState } from "react";
+
 import {
   HomeContainer,
-  ButtonStyled,
   SignOutButtonText,
   HomeButton,
   AuthHeader,
   HeaderTitle,
   SignOutButton,
   HomeButtonText,
+  AuthTextInput
 } from "../styles";
 import authStore from "../stores/authStore";
 
@@ -16,6 +16,15 @@ const Home = ({ navigation }) => {
   const handleSubmit = async () => {
     authStore.signout();
     navigation.replace("Signin");
+  };
+
+  const [team, setTeam] = useState({
+    teamName: "",
+  });
+
+  const handleAdd = async () => {
+    await authStore.createTeam(team);
+    navigation.navigate("MyTeam");
   };
 
   return (
@@ -39,6 +48,12 @@ const Home = ({ navigation }) => {
         <HomeButton onPress={() => navigation.navigate("MyTeam")}>
           <HomeButtonText>My Team</HomeButtonText>
         </HomeButton>
+        <AuthTextInput
+          onChangeText={(teamName) => setTeam({ ...team, teamName })}
+          placeholder="team name"
+          placeholderTextColor="#A6AEC1"
+        />
+        <HomeButton onPress={handleAdd}>Add Team</HomeButton>
       </HomeContainer>
     </>
   );

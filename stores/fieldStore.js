@@ -1,5 +1,5 @@
-import axios from "axios";
 import { makeAutoObservable } from "mobx";
+import instance from "./instance";
 
 class FieldAPIStore {
 
@@ -9,7 +9,7 @@ class FieldAPIStore {
   fields = [];
 
   fetchField = async () => {
-    const response = await axios.get("http://localhost:8000/fields");
+    const response = await instance.get("/fields");
     this.fields = response.data;
   };
 }

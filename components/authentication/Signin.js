@@ -19,7 +19,6 @@ const Signin = ({ navigation }) => {
     password: "",
   });
   const handleSubmit = async () => {
-    console.log("Hi ", userStore.users.username)
     await authStore.signin(user);
     if (authStore.user) {
       navigation.replace("Home");
