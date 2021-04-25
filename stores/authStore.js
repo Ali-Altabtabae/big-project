@@ -49,18 +49,37 @@ class AuthStore {
     alert("Signed Out");
   };
 
-  // Create Room
+  // Update User
+  updateUser = async (userData) => {
+    try {
+      await instance.put(`/${userData.id}`, userData);
+      this.setUser(res.data.token);
+      this.user = decode(res.data.token);
+    } catch (error) {
+      console.log("userStore -> updateUser -> error", error);
+    }
+  };
+
+  // Create Team
   createTeam = async (newTeam) => {
     try {
       const token = await AsyncStorage.getItem("myToken");
-      const res = await instance.post(
-        "/teams",
-        newTeam,
-        { headers: { Authorization: `Bearer ${token}` } }
-      );
+      const res = await instance.post("/teams", newTeam, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
       this.team.push(res.data);
     } catch (error) {
       console.log("authStore -> createTeam -> error ", error);
+    }
+  };
+
+  // Delete Team
+  deleteTeam = async (teamId) => {
+    try {
+      await instance.delete(`/teams/${teamId}`);
+      this.teams = this.teams.filter((team) => team.id !== +teamId);
+    } catch (error) {
+      console.log("teamStore -> deleteTeam -> error", error);
     }
   };
 

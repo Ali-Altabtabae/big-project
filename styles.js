@@ -124,6 +124,74 @@ export const HomeButtonText = styled.Text`
   color: #f5e4d7;
 `;
 
+// Fields Page
+export const FieldContainer = styled.View`
+  flex: 8;
+  align-self: stretch;
+  align-items: center;
+  background-color: #306B34;
+  padding-right: 60px;
+  padding-left: 60px;
+`;
+export const FieldButton = styled.TouchableOpacity`
+  align-self: stretch;
+  align-items: center;
+  padding: 20px;
+  background-color: #306B34;
+  margin-top: 30px;
+  border: 3px;
+  border-color: #f5e4d7;
+  border-radius: 5px; 
+`;
+export const FieldButtonText = styled.Text`
+  font-weight: bold;
+  font-size: 18px;
+  color: #f5e4d7;
+`;
+
+export const FieldHeader = styled.View`
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  background-color: #306B34;
+  border-bottom-width: 1px;
+  border-color: #f5e4d7;
+`;
+
+// Team Page
+export const TeamPageContainer = styled.View`
+  flex: 8;
+  align-self: stretch;
+  align-items: center;
+  background-color: #7B506F;
+  padding-right: 60px;
+  padding-left: 60px;
+`;
+export const TeamPageButton = styled.TouchableOpacity`
+  align-self: stretch;
+  align-items: center;
+  padding: 20px;
+  background-color: #7B506F;
+  margin-top: 30px;
+  border: 3px;
+  border-color: #f5e4d7;
+  border-radius: 5px; 
+`;
+export const TeamPageButtonText = styled.Text`
+  font-weight: bold;
+  font-size: 18px;
+  color: #f5e4d7;
+`;
+
+export const TeamPageHeader = styled.View`
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  background-color: #7B506F;
+  border-bottom-width: 1px;
+  border-color: #f5e4d7;
+`;
+
 // Sign Out Button 
 export const SignOutButton = styled.TouchableOpacity`
   align-self: stretch;

@@ -1,17 +1,34 @@
-import React from "react";
+import React, { useState } from "react";
 
 // Mobx
 import { observer } from "mobx-react";
+import authStore from "../../stores/authStore"
 
 // Styling
-import { HomeButtonText, HomeButton } from "../../styles";
+import { TeamPageButtonText, TeamPageButton } from "../../styles";
 
 const TeamItem = (props) => {
   const team = props.team;
+  //const userId = authStore.user.id;
+  //console.log("In TeamItem, ", authStore.user.id);
+  //const [counter, setCounter] = useState(team)
   return (
-    <HomeButton>
-      <HomeButtonText>{team.teamName}</HomeButtonText>
-    </HomeButton>
+    <>
+      <TeamPageButton
+        onPress={() =>
+          props.navigation.navigate("TeamPage", {
+            team: team,
+          })
+        }
+      >
+        <TeamPageButtonText>{team.teamName}</TeamPageButtonText>
+      </TeamPageButton>
+      {/* {<TeamPageButton
+        onPress={() => setCounter(team)}
+      >
+        <TeamPageButtonText>{counter.teamName}</TeamPageButtonText>
+      </TeamPageButton>} */}
+    </>
   );
 };
 
