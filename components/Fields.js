@@ -2,9 +2,8 @@ import React from "react";
 import FieldList from "./field/FieldList";
 import authStore from "../stores/authStore";
 import {
-  HomeContainer,
   SignOutButtonText,
-  AuthHeader,
+  FieldHeader,
   HeaderTitle,
   SignOutButton,
 } from "../styles";
@@ -17,13 +16,13 @@ const Fields = ({ navigation }) => {
 
   return (
     <>
-      <AuthHeader>
+      <FieldHeader>
         <HeaderTitle onPress={() => navigation.replace("Home")}>Home</HeaderTitle>
         <SignOutButton onPress={handleSubmit}>
           <SignOutButtonText>Sign out</SignOutButtonText>
         </SignOutButton>
-      </AuthHeader>
-        <FieldList />
+      </FieldHeader>
+        <FieldList navigation={navigation}/>
     </>
   );
 };

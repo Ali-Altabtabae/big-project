@@ -2,14 +2,14 @@ import React from "react";
 import TeamList from "./team/TeamList";
 import authStore from "../stores/authStore";
 import {
-  HomeContainer,
   SignOutButtonText,
-  AuthHeader,
+  TeamPageHeader,
   HeaderTitle,
   SignOutButton,
 } from "../styles";
 
 const Teams = ({ navigation }) => {
+
   const handleSubmit = async () => {
     authStore.signout();
     navigation.replace("Signin");
@@ -17,13 +17,15 @@ const Teams = ({ navigation }) => {
 
   return (
     <>
-      <AuthHeader>
-        <HeaderTitle onPress={() => navigation.replace("Home")}>Home</HeaderTitle>
+      <TeamPageHeader>
+        <HeaderTitle onPress={() => navigation.replace("Home")}>
+          Home
+        </HeaderTitle>
         <SignOutButton onPress={handleSubmit}>
           <SignOutButtonText>Sign out</SignOutButtonText>
         </SignOutButton>
-      </AuthHeader>
-        <TeamList />
+      </TeamPageHeader>
+        <TeamList navigation={navigation}/>
     </>
   );
 };

@@ -8,23 +8,23 @@ import {
   HeaderTitle,
   SignOutButton,
   HomeButtonText,
-  AuthTextInput
+  AuthTextInput,
 } from "../styles";
 import authStore from "../stores/authStore";
 
 const Home = ({ navigation }) => {
+  const [team, setTeam] = useState({
+    teamName: "",
+  });
+
   const handleSubmit = async () => {
     authStore.signout();
     navigation.replace("Signin");
   };
 
-  const [team, setTeam] = useState({
-    teamName: "",
-  });
-
   const handleAdd = async () => {
     await authStore.createTeam(team);
-    navigation.navigate("MyTeam");
+    navigation.navigate("Teams");
   };
 
   return (
@@ -53,7 +53,9 @@ const Home = ({ navigation }) => {
           placeholder="team name"
           placeholderTextColor="#A6AEC1"
         />
-        <HomeButton onPress={handleAdd}>Add Team</HomeButton>
+        <HomeButton onPress={handleAdd}>
+          <HomeButtonText>Add Team</HomeButtonText>
+        </HomeButton>
       </HomeContainer>
     </>
   );
